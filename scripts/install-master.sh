@@ -502,7 +502,7 @@ cat ${HANA_LOG_FILE} >> /var/log/messages
 
 # Post installation: Install AWS Data provider
 cd /root/install/
-/usr/local/bin/aws s3 cp s3://aws-data-provider/bin/aws-agent_install.sh /root/install/aws-agent_install.sh
+/usr/local/bin/aws s3 cp s3://usadata-utils/aws-agent_install.sh /root/install/aws-agent_install.sh --region us-gov-east-1
 chmod +x aws-agent_install.sh
 ./aws-agent_install.sh
 
