@@ -56,7 +56,7 @@ def download_s3(s3path,odir):
     s3bucket = s3path.split('s3://')[1].split('/')[0]
     cmd = aws_cmd + ' s3api get-bucket-location --bucket ' + s3bucket + " | grep -Po '(?" + '<="LocationConstraint": ")[^"]*'+ "'"
     s3bucketregion = subprocess.Popen([cmd], env=new_env, stdout=subprocess.PIPE, shell=True)
-    s3bucketregion = s3bucketregion.stdout.read().rstrip()
+    s3bucketregion = 'us-gov-east-1'
     print 'Will download HANA media from ' + s3path + ' To ' + odir
     cmd = aws_cmd
     cmd = cmd + ' s3 sync ' + s3path
